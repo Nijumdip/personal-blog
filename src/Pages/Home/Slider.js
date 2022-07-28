@@ -20,7 +20,7 @@ const Slider = () => {
                             </h6>
                         </div>
                     
-                        <div className='z-0 translate-x-80 translate-y-10'>
+                        <div className='z-0 translate-x-80 translate-y-7'>
                             <img
                                 width={'450px'}
                                 src="https://beiing.netlify.app/assets/img/blog/27.jpg"
@@ -28,7 +28,7 @@ const Slider = () => {
                             />
                         </div>
                     
-                        <div className="absolute flex justify-between gap-2 right-0 bottom-4">
+                        <div className="absolute flex justify-between gap-2 right-0 bottom-7">
                             <a href="#slide3" className="btn btn-accent btn-circle">❮❮</a> 
                             <a href="#slide2" className="btn btn-accent btn-circle">❯❯</a>
                         </div>
@@ -50,7 +50,7 @@ const Slider = () => {
                         </h6>
                     </div>
 
-                    <div className='z-0 absolute translate-x-80 translate-y-10'>
+                    <div className='z-0 absolute translate-x-80 translate-y-7'>
                         <img
                             width={'450px'}
                             src="https://beiing.netlify.app/assets/img/blog/4.jpg"
@@ -59,7 +59,7 @@ const Slider = () => {
                         />
                     </div>
 
-                    <div className="absolute flex justify-between gap-2 right-0 bottom-4">
+                    <div className="absolute flex justify-between gap-2 right-0 bottom-7">
                         <a href="#slide1" className="btn btn-accent btn-circle">❮❮</a> 
                         <a href="#slide3" className="btn btn-accent btn-circle">❯❯</a>
                     </div>
@@ -79,19 +79,18 @@ const Slider = () => {
                             Shamima Nijum
                         </h6>
                     </div>
-                    <div className='absolute translate-x-80 translate-y-10'>
+                    <div className='absolute translate-x-80 translate-y-7'>
                         <img
                             width={'450px'}
                             src="https://beiing.netlify.app/assets/img/blog/32.jpg" className="width: 450px rounded-full"
                             alt=''
                         />
                     </div>
-                    <div className="absolute flex justify-between gap-2 right-0 bottom-4">
+                    <div className="absolute flex justify-between gap-2 right-0 bottom-7">
                         <a href="#slide2" className="btn btn-accent btn-circle">❮❮</a> 
                         <a href="#slide1" className="btn btn-accent btn-circle">❯❯</a>
                     </div>
                 </div> 
-
             </div>
         </div>
     );
