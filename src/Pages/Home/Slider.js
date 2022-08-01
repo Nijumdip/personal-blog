@@ -3,8 +3,8 @@ import React from 'react';
 const Slider = () => {
     return (
         <div className='flex justify-center items-center'>
-            <div className="carousel w-4/5 h-screen">
-                <div id="slide1" className="carousel-item relative w-full h-5/6 bg-gray-300">
+            <div style={{height:"620px"}} className="carousel w-4/5">
+                <div id="slide1" className="carousel-item relative w-full h-4/5">
                     
                         <div className="z-10 absolute translate-x-28 translate-y-36">
                             <button className="btn btn-xs btn-primary px-7">
@@ -16,7 +16,7 @@ const Slider = () => {
                                 for web Development <br />
                             </h1>
                             <h6 className='text-base text-black my-5 font-normal'>
-                                Shamima Nijum
+                                Shamima Nijum 
                             </h6>
                         </div>
                     
@@ -35,7 +35,7 @@ const Slider = () => {
                     
                 </div> 
 
-                <div id="slide2" className="carousel-item relative w-full h-5/6 bg-gray-300">
+                <div id="slide2" className="carousel-item relative w-full h-4/5">
                     <div className='z-10 absolute translate-x-28 translate-y-36'>
                         <button className="btn btn-xs btn-primary px-5">
                         ওয়েব ডেভলপমেন্ট 
@@ -65,7 +65,7 @@ const Slider = () => {
                     </div>
                 </div> 
 
-                <div id="slide3" className="carousel-item relative w-full h-5/6 bg-gray-300">
+                <div id="slide3" className="carousel-item relative w-full h-4/5">
                     <div className='absolute z-10 translate-x-28 translate-y-36'>
                         <button className="btn btn-xs btn-primary px-7">
                         গুরুত্বপূর্ণ রিসোর্স
