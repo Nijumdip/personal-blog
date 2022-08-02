@@ -11,7 +11,7 @@ const Category = ({ category }) => {
       />
       </div>
       <div>
-      <h5 className="text-black text-sm">{category.name}</h5>
+      <h5 className="text-black text-sm mt-5">{category.name}</h5>
     </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 
 const Subscribe = () => {
   return (
-    <div class="mb-80 mt-20 shadow-xl">
+    <div class="mb-20 mt-20 shadow-xl">
         <div class="flex flex-col w-full place-items-center px-5 pb-10">
             <div>
                 <span class="font-bold text-gray-600">
