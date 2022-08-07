@@ -5,10 +5,10 @@ const Navbar = () => {
   return (
     <div className="sticky top-0 z-20 bg-gray-50 dark:bg-gray-700">
       <nav>
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 pt-3">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl  md:px-6 pt-3">
           <Link to="/" className="flex items-center">
-            <span className="btn btn-ghost self-center text-xl font-semibold whitespace-nowrap text-black dark:text-white">
-              শেখাটা কাগজে কলমে
+            <span className="btn btn-ghost self-center text-xl font-semibold whitespace-nowrap text-black">
+              কাগজে কলমে শেখা
             </span>
           </Link>
           
@@ -16,7 +16,7 @@ const Navbar = () => {
             <div className="btn btn-ghost btn-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 text-gray-700"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -32,7 +32,7 @@ const Navbar = () => {
             
             <Link
               to="login"
-              className="text-sm font-bold text-blue-600 dark:text-blue-500 btn btn-ghost"
+              className="text-sm font-bold text-gray-800 btn btn-ghost"
             >
               Login
             </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
       
       <nav>
         <div className="px-4 mx-auto max-w-screen-xl md:px-2">
-          <div className="flex items-center flex-wrap justify-between mx-auto max-w-screen-xl px-4 md:px-6 pb-3">
+          <div className="flex items-center flex-wrap justify-between mx-auto max-w-screen-xl px-7 md:px-6 pb-3">
             <ul className="flex flex-row mt-0 mr-6 text-sm font-bold">
               <li>
                 <Link
@@ -60,34 +60,34 @@ const Navbar = () => {
                   to="/"
                   className="text-gray-900 dark:text-white btn btn-ghost"
                 >
-                  Categories
-                </Link>
-              </li>
-              
-              <li>
-                <Link
-                  to="/"
-                  className="text-gray-900 dark:text-white btn btn-ghost"
-                >
-                  Posts
+                  Blog
                 </Link>
               </li>
               
               <li>
                 <Link
                   to="about"
-                  className="text-gray-900 dark:text-white btn btn-ghost"
+                  className="text-gray-900 dark:text-white btn btn-ghost w-32"
                 >
                   About Me
                 </Link>
               </li>
             </ul>
             
-            <div >
-                <Link className=" btn btn-ghost btn-circle" to="/">icon</Link>
-                <Link className=" btn btn-ghost btn-circle" to="/">icon</Link>
-                <Link className=" btn btn-ghost btn-circle" to="/">icon</Link>
-                <Link className=" btn btn-ghost btn-circle" to="/">icon</Link>
+            <div className="px-7">
+              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
+                <i class="fa-brands fa-twitter"></i>
+              </Link>
+              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
+                <i class="fa-brands fa-github"></i>
+              </Link>
+              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
+                <i class="fa-brands fa-linkedin"></i>
+              </Link>
+              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
+                <i class="fa-brands fa-facebook-f"></i>
+              </Link>
+              
             </div>
           </div>
         </div>

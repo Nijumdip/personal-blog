@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SocialIcon = () => {
+const  = () => {
     return (
         <div>
         <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
