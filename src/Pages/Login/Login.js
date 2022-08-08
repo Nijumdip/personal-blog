@@ -1,20 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Shared/Footer";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const Login = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    if (user) {
+        console.log(user);
+    }
   return (
     <div>
-      <div className="flex h-screen justify-center items-center ">
+      <div className="flex py-10 justify-center items-center ">
         <div className=" w-full p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        
-          <form className="space-y-6" action="#">
-            <h5 className="text-xl font-medium text-gray-900 dark:text-white">
+          <form className="space-y-3" action="#">
+            <h5 className="text-xl text-center font-medium text-gray-900 dark:text-white">
               Login to our platform
             </h5>
             <div>
               <label
-                for="email"
+                htmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Your email
@@ -30,7 +35,7 @@ const Login = () => {
             </div>
             <div>
               <label
-                for="password"
+                htmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Your password
@@ -56,7 +61,7 @@ const Login = () => {
                   />
                 </div>
                 <label
-                  for="remember"
+                  htmlFor="remember"
                   className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   Remember me
@@ -71,9 +76,9 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="w-full text-white bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800"
             >
-              Login
+              LOGIN
             </button>
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
               Not registered?{" "}
@@ -85,9 +90,17 @@ const Login = () => {
               </Link>
             </div>
           </form>
-          
+
+          <div className="divider text-gray-800">OR</div>
+          <button
+            onClick={() => signInWithGoogle()}
+            className="w-full text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            CONTINUE WITH GOOGLE
+          </button>
         </div>
       </div>
+
       <Footer></Footer>
     </div>
   );
