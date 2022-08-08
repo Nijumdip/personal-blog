@@ -1,8 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import BlogCard from "./BlogCard";
 
 const Blog = () => {
-  const blogs = [
+  
+  /* const blogs = [
     {
         _id:1,
         name:'পঁঞ্চ রত্নের Loop .',
@@ -57,19 +60,28 @@ const Blog = () => {
         img:"https://placeimg.com/400/225/arch"
 
     },
-]
+  ] */
+  
+
+  const [blogs, setBlogs] = useState();
+
+  useEffect(() => {
+    fetch('http://localhost:5000/blog')
+      .then(res => res.json())
+      .then(data => setBlogs(data));
+  },[])
   return (
 
     <div
       className="mt-10 flex flex-wrap justify-center items-center gap-5"
     >
       {
-        blogs.map(blog => <BlogCard
-          key={blog.id}
+        blogs?.map(blog => <BlogCard
+          key={blog._id}
           blog={blog}
         ></BlogCard>)
       }
-    
+     
     </div>
   );
 };

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import Category from "./Category";
 
 const Categories = () => {
-  const categories = [
+
+  /* const categories = [
     {
       _id: 1,
       name: "শিক্ষা / কেরিয়ার",
@@ -43,11 +45,19 @@ const Categories = () => {
       name: "গুরুত্বপূর্ণ রিসোর্স",
       img: "https://placeimg.com/160/160/arch",
     },
-  ];
+  ]; */
+
+  const [categories, setCategories] = useState();
+  useEffect(() => {
+    fetch('http://localhost:5000/category')
+      .then(res => res.json())
+      .then(data => setCategories(data));
+ },[])
+
   return (
     <div className=" bg-gray-100 -mt-28">
    <div className="flex flex-wrap justify-center items-center gap-3">
-        {categories.map(category =><Category
+        {categories?.map(category =><Category
                 key={category._id}    
                 category={category}    
             ></Category>)

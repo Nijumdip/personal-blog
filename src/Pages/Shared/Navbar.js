@@ -11,7 +11,7 @@ const Navbar = () => {
               কাগজে কলমে শেখা
             </span>
           </Link>
-          
+
           <div className="flex items-center">
             <div className="btn btn-ghost btn-circle">
               <svg
@@ -29,7 +29,7 @@ const Navbar = () => {
                 />
               </svg>
             </div>
-            
+
             <Link
               to="login"
               className="text-sm font-bold text-gray-800 btn btn-ghost"
@@ -37,10 +37,9 @@ const Navbar = () => {
               Login
             </Link>
           </div>
-          
         </div>
       </nav>
-      
+
       <nav>
         <div className="px-4 mx-auto max-w-screen-xl md:px-2">
           <div className="flex items-center flex-wrap justify-between mx-auto max-w-screen-xl px-7 md:px-6 pb-3">
@@ -54,7 +53,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              
+
               <li>
                 <Link
                   to="/"
@@ -63,7 +62,7 @@ const Navbar = () => {
                   Blog
                 </Link>
               </li>
-              
+
               <li>
                 <Link
                   to="about"
@@ -73,21 +72,32 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            
+
             <div className="px-7">
-              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
-                <i class="fa-brands fa-twitter"></i>
+              <Link
+                className=" btn btn-ghost btn-circle text-gray-800 text-xl"
+                to="/"
+              >
+                <i className="fa-brands fa-twitter"></i>
               </Link>
-              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
-                <i class="fa-brands fa-github"></i>
+              <Link
+                className=" btn btn-ghost btn-circle text-gray-800 text-xl"
+                to="/"
+              >
+                <i className="fa-brands fa-github"></i>
               </Link>
-              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
-                <i class="fa-brands fa-linkedin"></i>
+              <Link
+                className=" btn btn-ghost btn-circle text-gray-800 text-xl"
+                to="/"
+              >
+                <i className="fa-brands fa-linkedin"></i>
               </Link>
-              <Link className=" btn btn-ghost btn-circle text-gray-800 text-xl" to="/">
-                <i class="fa-brands fa-facebook-f"></i>
+              <Link
+                className=" btn btn-ghost btn-circle text-gray-800 text-xl"
+                to="/"
+              >
+                <i className="fa-brands fa-facebook-f"></i>
               </Link>
-              
             </div>
           </div>
         </div>

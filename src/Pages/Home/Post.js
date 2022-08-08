@@ -3,19 +3,21 @@ import "./Post.css";
 
 const Post = () => {
   return (
-    <div class="hero mb-20 shadow-xl ">
-      <div class="hero-content flex-col lg:flex-row-reverse rounded-lg">
-          <img
-            src="https://beiing.netlify.app/assets/img/blog/26.jpg"
-            class=" shadow-2xl rounded-full postImg"
-            alt=""
-          />
+    <div className="hero mb-20 shadow-xl ">
+      <div className="hero-content flex-col lg:flex-row-reverse rounded-lg">
+        <img
+          src="https://beiing.netlify.app/assets/img/blog/26.jpg"
+          className=" shadow-2xl rounded-full postImg"
+          alt=""
+        />
         <div>
           <button className="btn btn-xs btn-primary px-7 my-8">
             ওয়েব ডেভলপমেন্ট
           </button>
-          <h1 class="text-4xl font-bold text-black ">পঁঞ্চ রত্নের Loop .</h1>
-          <p class="my-8 text-black">
+          <h1 className="text-4xl font-bold text-black ">
+            পঁঞ্চ রত্নের Loop .
+          </h1>
+          <p className="my-8 text-black">
             LOOP জিনিসটা খুবি ইন্টারেষ্টিং একবার যদি বিষয়টির Concept Clear করতে
             পারেন । তাহলে হয়তোবা এর প্রেমেও পরে যেতে পারেন । আমরা বাস্তব জীবনে
             প্রতিদিন LOOP ব্যবহার করে আসছি । এখন মনে প্রশ্ন জেগেছে কোথায় ব্যবহার
@@ -27,8 +29,8 @@ const Post = () => {
             প্রতিদিন ।
           </p>
           <div className="flex flex-row text-base text-black ">
-            <div class="avatar">
-              <div class="rounded-full w-10 my-2 mr-4 ">
+            <div className="avatar">
+              <div className="rounded-full w-10 my-2 mr-4 ">
                 <img src="https://placeimg.com/192/192/people" alt="" />
               </div>
             </div>
