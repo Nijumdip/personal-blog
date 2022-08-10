@@ -1,17 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Shared/Footer";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import GoogleLogin from "./GoogleLogin";
+import GithubLogin from "./GithubLogin";
 
 const Login = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    if (user) {
-        console.log(user);
-    }
   return (
     <div>
-      <div className="flex py-10 justify-center items-center ">
+      <div className="flex justify-center items-center py-10">
         <div className=" w-full p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
           <form className="space-y-3" action="#">
             <h5 className="text-xl text-center font-medium text-gray-900 dark:text-white">
@@ -33,6 +30,7 @@ const Login = () => {
                 required=""
               />
             </div>
+
             <div>
               <label
                 htmlFor="password"
@@ -49,6 +47,7 @@ const Login = () => {
                 required=""
               />
             </div>
+
             <div className="flex items-start">
               <div className="flex items-start">
                 <div className="flex items-center h-5">
@@ -74,12 +73,20 @@ const Login = () => {
                 Lost Password?
               </Link>
             </div>
+
             <button
               type="submit"
-              className="w-full text-white bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800"
+              className="w-full flex justify-center items-center text-white bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800"
             >
+              <img
+                width="30px"
+                className="mr-5 rounded-full"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSYtMF5lUCNhU_dM2FxJ4rYbFhIYq-_R659A&usqp=CAU"
+                alt=""
+              />
               LOGIN
             </button>
+
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
               Not registered?{" "}
               <Link
@@ -89,15 +96,12 @@ const Login = () => {
                 Create account
               </Link>
             </div>
+
           </form>
 
           <div className="divider text-gray-800">OR</div>
-          <button
-            onClick={() => signInWithGoogle()}
-            className="w-full text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            CONTINUE WITH GOOGLE
-          </button>
+          <GoogleLogin></GoogleLogin>
+          <GithubLogin></GithubLogin>
         </div>
       </div>
 
