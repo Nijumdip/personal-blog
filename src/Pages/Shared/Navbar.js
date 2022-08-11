@@ -1,7 +1,17 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Navbar = () => {
+
+  const [user, loading, error] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+  };
+
   return (
     <div className="sticky top-0 z-20 bg-gray-50 dark:bg-gray-700">
       <nav>
@@ -29,13 +39,18 @@ const Navbar = () => {
                 />
               </svg>
             </div>
-
-            <Link
-              to="login"
-              className="text-sm font-bold text-gray-800 btn btn-ghost"
-            >
-              Login
-            </Link>
+            <p>
+            
+                {user ? 
+                  <Link to="/" onClick={logout} className="text-sm font-bold text-gray-800 btn btn-ghost">
+                    sign out
+                  </Link>
+                  :
+                  <Link to="login" className="text-sm font-bold text-gray-800 btn btn-ghost">
+                    Login
+                  </Link>
+                }
+            </p>
           </div>
         </div>
       </nav>
@@ -80,24 +95,28 @@ const Navbar = () => {
               >
                 <i className="fa-brands fa-twitter"></i>
               </Link>
+
               <Link
                 className=" btn btn-ghost btn-circle text-gray-800 text-xl"
                 to="/"
               >
                 <i className="fa-brands fa-github"></i>
               </Link>
+
               <Link
                 className=" btn btn-ghost btn-circle text-gray-800 text-xl"
                 to="/"
               >
                 <i className="fa-brands fa-linkedin"></i>
               </Link>
+
               <Link
                 className=" btn btn-ghost btn-circle text-gray-800 text-xl"
                 to="/"
               >
                 <i className="fa-brands fa-facebook-f"></i>
               </Link>
+
             </div>
           </div>
         </div>
