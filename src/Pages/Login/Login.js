@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import auth from "../../firebase.init";
 import GoogleLogin from "./GoogleLogin";
@@ -18,6 +18,7 @@ const Login = () => {
 
   const { register, formState: { errors }, handleSubmit} = useForm();
   let errorElement;
+  const navigate = useNavigate();
   
   if (loading) {
     return <Loading></Loading>
@@ -34,6 +35,7 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
+    navigate('/dashboard');
   };
 
   return (

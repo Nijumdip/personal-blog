@@ -42,7 +42,7 @@ const Navbar = () => {
             <p>
             
                 {user ? 
-                  <Link to="/" onClick={logout} className="text-sm font-bold text-gray-800 btn btn-ghost">
+                  <Link to="/" onClick={logout} className="text-sm font-bold text-blue-900 btn btn-ghost">
                     sign out
                   </Link>
                   :
