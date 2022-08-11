@@ -4,6 +4,7 @@ import Navbar from './Pages/Shared/Navbar';
 import { Routes, Route, Link } from "react-router-dom";
 import About from './Pages/About/About';
 import Login from './Pages/Login/Login';
+import SignUp from './Pages/Login/SignUp';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
       </Routes>
     </div>
   );

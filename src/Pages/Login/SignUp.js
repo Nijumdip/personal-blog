@@ -1,52 +1,77 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Footer from "../Shared/Footer";
-import auth from "../../firebase.init";
-import GoogleLogin from "./GoogleLogin";
-import GithubLogin from "./GithubLogin";
-import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import Loading from "../Shared/Loading";
+import React from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Footer from '../Shared/Footer';
+import Loading from '../Shared/Loading';
+import GithubLogin from './GithubLogin';
+import GoogleLogin from './GoogleLogin';
 
-const Login = () => {
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
-
-  const { register, formState: { errors }, handleSubmit} = useForm();
-  let errorElement;
-  
-  if (loading) {
-    return <Loading></Loading>
-  }
-
-  if (error) {
-    errorElement = <div><p className="text-red-500">{error?.message}</p></div>
-  }
-
-  if (user) {
-    console.log(user);
-  }
-
-  const onSubmit = (data) => {
-    console.log(data);
-    signInWithEmailAndPassword(data.email, data.password);
-  };
-
-  return (
-    <div>
+const SignUp = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+    
+      const { register, formState: { errors }, handleSubmit} = useForm();
+      let errorElement;
+      
+      if (loading) {
+        return <Loading></Loading>
+      }
+    
+      if (error) {
+        errorElement = <div><p className="text-red-500">{error?.message}</p></div>
+      }
+    
+      if (user) {
+        console.log(user);
+      }
+    
+      const onSubmit = (data) => {
+        console.log(data);
+        signInWithEmailAndPassword(data.email, data.password);
+      };
+    
+    return (
+        <div>
       <div className="flex justify-center items-center py-10">
         <div className=" w-full p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
           
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-3" >
             
             <h5 className="text-xl text-center font-medium text-gray-900 dark:text-white">
-              Login to our platform
+              Sign Up to our platform
             </h5>
 
+            <div>
+              <label
+                htmlFor="name"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Your Name
+              </label>
+
+              <input
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: 'name is required'
+                  }
+                })}
+                type="name"
+                placeholder="Shamima Akter"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              />
+
+              <label>
+                {errors.name?.type === "required" && <span className="label-text-alt text-red-600">{errors.name.message}</span>}
+              </label>
+            </div>
+            
             <div>
               <label
                 htmlFor="email"
@@ -136,7 +161,8 @@ const Login = () => {
                 Lost Password?
               </Link>
             </div>
-                {errorElement}
+            
+            {errorElement}
             <button
               type="submit"
               className="w-full flex justify-center items-center text-white bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800"
@@ -147,16 +173,16 @@ const Login = () => {
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSYtMF5lUCNhU_dM2FxJ4rYbFhIYq-_R659A&usqp=CAU"
                 alt=""
               />
-              LOGIN
+              SIGN UP
             </button>
 
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-              Not registered?{" "}
+              Already have an account?{" "}
               <Link
-                to="/signup"
+                to="/login"
                 className="text-blue-700 hover:underline dark:text-blue-500"
               >
-                Create account
+                Please login
               </Link>
             </div>
           </form>
@@ -169,7 +195,7 @@ const Login = () => {
 
       <Footer></Footer>
     </div>
-  );
+    );
 };
 
-export default Login;
+export default SignUp;
