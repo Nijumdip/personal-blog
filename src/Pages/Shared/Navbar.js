@@ -71,6 +71,15 @@ const Navbar = () => {
 
               <li>
                 <Link
+                  to="/dashboard"
+                  className="text-gray-900 dark:text-white btn btn-ghost"
+                >
+                  Dashboard
+                </Link>
+              </li>
+              
+              <li>
+                <Link
                   to="/"
                   className="text-gray-900 dark:text-white btn btn-ghost"
                 >

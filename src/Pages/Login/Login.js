@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import auth from "../../firebase.init";
 import GoogleLogin from "./GoogleLogin";
@@ -19,6 +19,8 @@ const Login = () => {
   const { register, formState: { errors }, handleSubmit} = useForm();
   let errorElement;
   const navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   
   if (loading) {
     return <Loading></Loading>
@@ -30,12 +32,12 @@ const Login = () => {
 
   if (user) {
     console.log(user);
+    navigate(from, { replace: true });
   }
 
   const onSubmit = (data) => {
     console.log(data);
     signInWithEmailAndPassword(data.email, data.password);
-    navigate('/dashboard');
   };
 
   return (

@@ -1,11 +1,15 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 const GoogleLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   let errorElement;
+  const navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   if (loading) {
     return <Loading></Loading>
@@ -17,6 +21,7 @@ const GoogleLogin = () => {
 
   if (user) {
     console.log(user);
+    navigate(from, { replace: true });
   }
   return (
     <div>
