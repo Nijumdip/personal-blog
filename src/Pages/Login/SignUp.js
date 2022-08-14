@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from "react";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -21,6 +23,12 @@ const SignUp = () => {
       const { register, formState: { errors }, handleSubmit} = useForm();
     let errorElement;
     const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (user) {
+        navigate('/dashboard');
+      }
+    },[user, navigate]);
       
       if (loading || updating) {
         return <Loading></Loading>
@@ -30,16 +38,12 @@ const SignUp = () => {
         errorElement = <div><p className="text-red-500">{error?.message || updateError?.message}</p></div>
       }
     
-      if (user) {
-        console.log(user);
-      }
-    
       const onSubmit = async data => {
         // console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
           console.log('updating');
-          navigate('/dashboard');
+          
       };
     
     return (
