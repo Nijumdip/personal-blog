@@ -40,7 +40,6 @@ const Navbar = () => {
               </svg>
             </div>
             <p>
-            
                 {user ? 
                   <Link to="/" onClick={logout} className="text-sm font-bold text-blue-900 btn btn-ghost">
                     sign out
@@ -70,12 +69,14 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link
+                {
+                  user && <Link
                   to="/dashboard"
                   className="text-gray-900 dark:text-white btn btn-ghost"
                 >
                   Dashboard
                 </Link>
+                }
               </li>
               
               <li>
