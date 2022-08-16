@@ -15,9 +15,9 @@ const Navbar = () => {
   return (
     <div className="sticky top-0 z-20 bg-gray-50 dark:bg-gray-700">
       <nav>
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl  md:px-6 pt-3">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl   pt-3">
           <Link to="/" className="flex items-center">
-            <span className="btn btn-ghost self-center text-xl font-semibold whitespace-nowrap text-black">
+            <span className="btn btn-ghost self-center text-lg font-bold whitespace-nowrap text-black">
               কাগজে কলমে শেখা
             </span>
           </Link>
@@ -39,11 +39,10 @@ const Navbar = () => {
                 />
               </svg>
             </div>
+
             <p>
                 {user ? 
-                  <Link to="/" onClick={logout} className="text-sm font-bold text-blue-900 btn btn-ghost">
-                    sign out
-                  </Link>
+                  <Link to="/" onClick={logout} className="text-sm font-bold text-blue-900 btn btn-ghost">sign out</Link>
                   :
                   <Link to="login" className="text-sm font-bold text-gray-800 btn btn-ghost">
                     Login
@@ -55,9 +54,9 @@ const Navbar = () => {
       </nav>
 
       <nav>
-        <div className="px-4 mx-auto max-w-screen-xl md:px-2">
-          <div className="flex items-center flex-wrap justify-between mx-auto max-w-screen-xl px-7 md:px-6 pb-3">
-            <ul className="flex flex-row mt-0 mr-6 text-sm font-bold">
+        <div className="mx-auto max-w-screen-xl ">
+          <div className="flex items-center flex-wrap justify-between mx-auto max-w-screen-xl pb-3 ">
+            <ul className="flex flex-row mt-0 text-sm font-bold">
               <li>
                 <Link
                   to="/"
@@ -73,11 +72,12 @@ const Navbar = () => {
                   user && <Link
                   to="/dashboard"
                   className="text-gray-900 dark:text-white btn btn-ghost"
+                  aria-current="page"
                 >
                   Dashboard
                 </Link>
                 }
-              </li>
+                </li>
               
               <li>
                 <Link
@@ -91,7 +91,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="about"
-                  className="text-gray-900 dark:text-white btn btn-ghost w-32"
+                  className="text-gray-900 dark:text-white btn btn-ghost"
                 >
                   About Me
                 </Link>
