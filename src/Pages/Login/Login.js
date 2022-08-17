@@ -126,6 +126,7 @@ const Login = () => {
                     required=""
                   />
                 </div>
+
                 <label
                   htmlFor="remember"
                   className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -133,6 +134,7 @@ const Login = () => {
                   Remember me
                 </label>
               </div>
+
               <Link
                 to="#"
                 className="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500"
@@ -140,7 +142,9 @@ const Login = () => {
                 Lost Password?
               </Link>
             </div>
-                {errorElement}
+
+            {errorElement}
+            
             <button
               type="submit"
               className="w-full flex justify-center items-center text-white bg-amber-400 hover:bg-amber-500 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800"

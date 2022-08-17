@@ -1,3 +1,4 @@
+import { Label } from 'flowbite-react';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
@@ -5,7 +6,7 @@ const Dashboard = () => {
     return (
         <div className='flex flex-row justify-center content-start'>
             
-            <aside className="w-64" aria-label="Sidebar">
+            <aside  className="w-64" aria-label="Sidebar">
                 <div className="overflow-y-auto py-4 px-3">
                     <ul className="space-y-2">
                         <li>
@@ -33,7 +34,7 @@ const Dashboard = () => {
             </aside>
             <div className=" w-4/5 pt-10">
                 <div className=" flex flex-col justify-center items-center px-4 ">
-                    <h2 className='text-xl text-black'>Dashboard</h2>
+                    <h2 className='text-xl text-amber-500 font-bold'>Dashboard</h2>
                     <Outlet />
                 </div>
             </div>
