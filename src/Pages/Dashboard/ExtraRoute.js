@@ -25,32 +25,31 @@ const ExtraRoute = () => {
 
   const { register, handleSubmit, resetField } = useForm();
   const onSubmit = (data) => {
-    // console.log(data.category, imgUpload);
-    const categoryTitle = data.category;
-    const categoryImage = imgUpload;
-    const categoryData = { categoryTitle, categoryImage };
-    // console.log(categoryData);
+    // console.log(data.email, imgUpload);
+    const adminTitle = data.email;
+    const adminImage = imgUpload;
+    const adminData = { adminTitle, adminImage };
+    // console.log(adminData);
 
-    fetch('http://localhost:5000/category', {
+    fetch('http://localhost:5000/admin', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(categoryData),
+      body: JSON.stringify(adminData),
     })
       .then(res => res.json())
       .then(data => {
         // console.log(data);
         if (data.acknowledged) {
-          toast.success('your category added successfully');
-          resetField("category");
+          toast.success('your admin added successfully');
+          resetField("email");
           resetField("file");
           setImgUpload(null);
         }
         else {
           toast.error('oops! any problem occurred plz try again')
         }
-
     })
   };
 
@@ -84,8 +83,9 @@ const ExtraRoute = () => {
 
       <div>
         <input
-          {...register("category")}
-          type="text"
+          {...register("email")}
+          type="email"
+          placeholder="name@company.com"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
           required
         />

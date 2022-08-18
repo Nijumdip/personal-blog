@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 const AddCategories = () => {
   const [imageUpload, setImageUpload] = useState(null);
@@ -21,7 +22,7 @@ const AddCategories = () => {
       .catch(err => console.log(err));
   }
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, resetField } = useForm();
   const onSubmit = (data) => {
     // console.log(imageUpload, data.category);
     const categoryImage = imageUpload;
@@ -29,7 +30,28 @@ const AddCategories = () => {
     // console.log(categoryImage, categoryTitle);
     // console.log({ categoryImage, categoryTitle });
     const categoryData = { categoryImage, categoryTitle };
-    console.log(categoryData);
+    // console.log(categoryData);
+
+    fetch('http://localhost:5000/category', {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(categoryData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        if (data.acknowledged) {
+          toast.success('your category added successfully');
+          resetField("category");
+          resetField("file");
+          setImageUpload(null);
+        }
+        else {
+          toast.error('oops! any problem occurred plz try again')
+        }
+      });
   };
 
   return (
