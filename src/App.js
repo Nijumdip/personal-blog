@@ -10,6 +10,8 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import AddCategories from './Pages/Dashboard/AddCategories';
 import AddPost from './Pages/Dashboard/AddPost';
 import ExtraRoute from './Pages/Dashboard/ExtraRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         </Route>
 
       </Routes>
+
+      <ToastContainer />
     </div>
   );
 }

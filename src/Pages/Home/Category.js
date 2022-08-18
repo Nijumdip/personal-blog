@@ -7,10 +7,10 @@ const Category = ({ category }) => {
       className="flex flex-col justify-center items-center"
     >
       <div>
-        <img className="mask mask-circle w-32" src={category.img} alt="" />
+        <img className="mask mask-circle w-32" src={category.categoryImage} alt="" />
       </div>
       <div>
-        <h5 className="text-black text-sm mt-5">{category.name}</h5>
+        <h5 className="text-black text-sm mt-5">{category.categoryTitle}</h5>
       </div>
     </div>
   );

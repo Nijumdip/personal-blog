@@ -26,7 +26,7 @@ const Dashboard = () => {
                         <li>
                             <Link to="/dashboard/extraRoute" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <img className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white rounded-lg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxL8SSBHriEZ-Vs8WQMSqCTCTZ2yDD81jd0g&usqp=CAU" alt="" />
-                                <span className="ml-3">Extra Route</span>
+                                <span className="ml-3">Add Admin</span>
                             </Link>
                         </li>
                     </ul>
