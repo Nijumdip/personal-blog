@@ -26,9 +26,10 @@ const ExtraRoute = () => {
   const { register, handleSubmit, resetField } = useForm();
   const onSubmit = (data) => {
     // console.log(data.email, imgUpload);
-    const adminTitle = data.email;
+    const adminEmail = data.email;
     const adminImage = imgUpload;
-    const adminData = { adminTitle, adminImage };
+    const role = 'admin';
+    const adminData = { adminEmail, adminImage, role };
     // console.log(adminData);
 
     fetch('http://localhost:5000/admin', {
@@ -70,7 +71,6 @@ const ExtraRoute = () => {
           type="file"
           accept="image/*"
           onChange={handleImage}
-          required
           className="block w-full text-sm text-slate-500
             file:mr-4 file:py-2 file:px-4
             file:rounded-full file:border-0

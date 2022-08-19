@@ -12,6 +12,7 @@ import AddPost from './Pages/Dashboard/AddPost';
 import ExtraRoute from './Pages/Dashboard/ExtraRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BlogDetails from './Pages/Home/BlogDetails';
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
         <Route path="addPost" element={<AddPost />} />
         <Route path="extraRoute" element={<ExtraRoute />} />
         </Route>
+        <Route path="blogDetail/:id" element={
+          <RequireAuth>
+            <BlogDetails />
+          </RequireAuth>
+        } />
 
       </Routes>
 
