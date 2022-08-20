@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import AllBlog from "./AllBlog";
 import BlogCard from "./BlogCard";
 
 const Blog = () => {
@@ -71,17 +72,15 @@ const Blog = () => {
       .then(data => setBlogs(data));
   },[])
   return (
-
     <div
       className="mt-10 flex flex-wrap justify-center items-center gap-5"
     >
       {
-        blogs?.map(blog => <BlogCard
+        blogs?.slice(0, 9).map(blog => <BlogCard
           key={blog._id}
           blog={blog}
         ></BlogCard>)
       }
-     
     </div>
   );
 };

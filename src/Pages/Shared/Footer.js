@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-20 bg-gray-900 text-black-content">
+    <footer className="footer footer-center p-20 bg-gray-900 text-black-content mt-10">
       <div>
         <svg
           width="50"

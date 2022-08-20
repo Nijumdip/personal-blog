@@ -13,17 +13,18 @@ const Navbar = () => {
   
 
   if (user) {
-    console.log(user.email);
+    // console.log(user.email);
     fetch(`http://localhost:5000/admin/${user.email}`)
     .then(res=>res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setAdmin(data);
     })
   }
 
   const logout = () => {
     signOut(auth);
+    
   };
 
   return (
@@ -85,8 +86,8 @@ const Navbar = () => {
                   </li>
   
                   <li>
-                    {
-                      admin.role ==="admin" && <Link
+                    { 
+                       admin.role ==="admin" && <Link
                       to="/dashboard"
                       className="text-gray-900 dark:text-white btn btn-ghost"
                       aria-current="page"
@@ -98,10 +99,10 @@ const Navbar = () => {
                   
                   <li>
                     <Link
-                      to="/"
+                      to="/allBlog"
                       className="text-gray-900 dark:text-white btn btn-ghost"
                     >
-                      Blog
+                      Blogs
                     </Link>
                   </li>
   
@@ -115,34 +116,39 @@ const Navbar = () => {
                   </li>
                 </ul>
   
-                <div className="px-7">
-                  <Link
+                  <div className="px-7">
+                    
+                    <a
+                    target ="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
-                    to="/"
+                    href="https://twitter.com/NijumDip298"
                   >
                     <i className="fa-brands fa-twitter"></i>
-                  </Link>
+                  </a>
   
-                  <Link
+                  <a
+                  target ="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
-                    to="/"
+                    href="https://github.com/Nijumdip"
                   >
                     <i className="fa-brands fa-github"></i>
-                  </Link>
+                  </a>
   
-                  <Link
+                  <a
+                  target ="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
-                    to="/"
+                    href="https://www.linkedin.com/in/nijum-dip-44441a222/"
                   >
                     <i className="fa-brands fa-linkedin"></i>
-                  </Link>
+                  </a>
   
-                  <Link
+                  <a
+                  target ="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
-                    to="/"
+                    href="https://www.facebook.com/nizum.nizum.1481"
                   >
                     <i className="fa-brands fa-facebook-f"></i>
-                  </Link>
+                  </a>
   
                 </div>
               </div>

@@ -15,10 +15,9 @@ const BlogDetails = () => {
       });
   }, []);
   return (
-    <>
 
-      <div class="hero flex justify-center items-center" style={{ height: "650px" }}>
-        <div class="card w-5/6 shadow-xl hero-content flex-col lg:flex-row">
+      <div class="hero flex justify-center items-center mt-10">
+        <div class="card w-5/6 shadow-xl hero-content flex-col lg:flex-row py-10">
           <img
             src={blogDetails.img}
             class="max-w-sm rounded-lg shadow-2xl"
@@ -32,7 +31,6 @@ const BlogDetails = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 
