@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Footer from "../Shared/Footer";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -29,7 +30,8 @@ const BlogDetails = () => {
             </h2>
             <p>{blogDetails.description}</p>
           </div>
-        </div>
+      </div>
+      <Footer></Footer>
       </div>
   );
 };

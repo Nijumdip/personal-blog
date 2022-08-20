@@ -1,2 +1,5 @@
-dashboard একটা ভাগ ঠিক করতে হবে
-navbar e a teg er bodole  Link teg babohar korte hobe
+dashboard একটা bug ঠিক করতে হবে
+navbar e (a) teg er bodole  (Link) teg babohar korte hobe
+category page 
+about page
+reach text added
