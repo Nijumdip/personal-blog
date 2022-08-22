@@ -70,7 +70,8 @@ const Blog = () => {
     fetch('http://localhost:5000/blog')
       .then(res => res.json())
       .then(data => setBlogs(data));
-  },[])
+    },[])
+    console.log(blogs);
   return (
     <div
       className="mt-10 flex flex-wrap justify-center items-center gap-5"

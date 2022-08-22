@@ -15,6 +15,8 @@ const BlogDetails = () => {
         setBlogDetails(data);
       });
   }, []);
+  console.log(blogDetails);
+
   return (
 
       <div class="hero flex justify-center items-center mt-10">
@@ -28,7 +30,10 @@ const BlogDetails = () => {
             <h2 className="text-3xl font-bold card-title">
               {blogDetails.name}
             </h2>
-            <p>{blogDetails.description}</p>
+          <div dangerouslySetInnerHTML={{
+            __html:  blogDetails.description
+        }} 
+          ></div>
           </div>
       </div>
       <Footer></Footer>

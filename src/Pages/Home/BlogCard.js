@@ -17,7 +17,10 @@ const BlogCard = ({ blog }) => {
       </figure>
       <div className="card-body text-black">
         <h2 className="card-title">{name}</h2>
-        <p>{description.slice(0, 150)}...</p>
+        <div dangerouslySetInnerHTML={{
+          __html:  description
+      }} 
+        ></div>
         <div className="card-actions">
           <Link to= {`/blogDetail/${_id}`} >
           <button className="btn btn-xs btn-primary px-7">Read More</button>
