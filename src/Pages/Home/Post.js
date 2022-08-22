@@ -6,7 +6,7 @@ const Post = () => {
     <div className="hero mb-20 shadow-xl ">
       <div className="hero-content flex-col lg:flex-row-reverse rounded-lg">
         <img
-          src="https://beiing.netlify.app/assets/img/blog/26.jpg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHBZewRAjitb1K_Fv_2QxPly-Trs7T7fw_OQ&usqp=CAU"
           className=" shadow-2xl rounded-full postImg"
           alt=""
         />
