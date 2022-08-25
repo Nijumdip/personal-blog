@@ -7,30 +7,28 @@ import auth from "../../firebase.init";
 import Loading from "./Loading";
 
 const Navbar = () => {
-
   const [user, loading] = useAuthState(auth);
   const [admin, setAdmin] = useState({});
-  
 
   if (user) {
     // console.log(user.email);
-    fetch(`http://localhost:5000/admin/${user.email}`)
-    .then(res=>res.json())
-      .then(data => {
+    fetch(`https://stark-hollows-26694.herokuapp.com/admin/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
         // console.log(data);
         setAdmin(data);
-    })
+      });
   }
 
   const logout = () => {
     signOut(auth);
-    
   };
 
   return (
     <>
-      {
-        loading ? <Loading></Loading> :
+      {loading ? (
+        <Loading></Loading>
+      ) : (
         <div className="sticky top-0 z-20 bg-gray-50 dark:bg-gray-700">
           <nav>
             <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl   pt-3">
@@ -39,7 +37,7 @@ const Navbar = () => {
                   কাগজে কলমে শেখা
                 </span>
               </Link>
-  
+
               <div className="flex items-center">
                 <div className="btn btn-ghost btn-circle">
                   <svg
@@ -57,20 +55,29 @@ const Navbar = () => {
                     />
                   </svg>
                 </div>
-  
+
                 <p>
-                    {user ? 
-                      <Link to="/" onClick={logout} className="text-sm font-bold text-blue-900 btn btn-ghost">sign out</Link>
-                      :
-                      <Link to="login" className="text-sm font-bold text-gray-800 btn btn-ghost">
-                        Login
-                      </Link>
-                    }
+                  {user ? (
+                    <Link
+                      to="/"
+                      onClick={logout}
+                      className="text-sm font-bold text-blue-900 btn btn-ghost"
+                    >
+                      sign out
+                    </Link>
+                  ) : (
+                    <Link
+                      to="login"
+                      className="text-sm font-bold text-gray-800 btn btn-ghost"
+                    >
+                      Login
+                    </Link>
+                  )}
                 </p>
               </div>
             </div>
           </nav>
-  
+
           <nav>
             <div className="mx-auto max-w-screen-xl ">
               <div className="flex items-center flex-wrap justify-between mx-auto max-w-screen-xl pb-3 ">
@@ -84,19 +91,19 @@ const Navbar = () => {
                       Home
                     </Link>
                   </li>
-  
+
                   <li>
-                    { 
-                       admin.role ==="admin" && <Link
-                      to="/dashboard"
-                      className="text-gray-900 dark:text-white btn btn-ghost"
-                      aria-current="page"
-                    >
-                      Dashboard
-                    </Link>
-                    }
-                    </li>
-                  
+                    {admin.role === "admin" && (
+                      <Link
+                        to="/dashboard"
+                        className="text-gray-900 dark:text-white btn btn-ghost"
+                        aria-current="page"
+                      >
+                        Dashboard
+                      </Link>
+                    )}
+                  </li>
+
                   <li>
                     <Link
                       to="/allBlog"
@@ -105,7 +112,7 @@ const Navbar = () => {
                       Blogs
                     </Link>
                   </li>
-  
+
                   <li>
                     <Link
                       to="about"
@@ -115,46 +122,44 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </ul>
-  
-                  <div className="px-7">
-                    
-                    <a
-                    target ="_blank"
+
+                <div className="px-7">
+                  <a
+                    target="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
                     href="https://twitter.com/NijumDip298"
                   >
                     <i className="fa-brands fa-twitter"></i>
                   </a>
-  
+
                   <a
-                  target ="_blank"
+                    target="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
                     href="https://github.com/Nijumdip"
                   >
                     <i className="fa-brands fa-github"></i>
                   </a>
-  
+
                   <a
-                  target ="_blank"
+                    target="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
                     href="https://www.linkedin.com/in/nijum-dip-44441a222/"
                   >
                     <i className="fa-brands fa-linkedin"></i>
                   </a>
-  
+
                   <a
-                  target ="_blank"
+                    target="_blank"
                     className=" btn btn-ghost btn-circle text-gray-800 text-xl"
                     href="https://www.facebook.com/nizum.nizum.1481"
                   >
                     <i className="fa-brands fa-facebook-f"></i>
                   </a>
-  
                 </div>
               </div>
             </div>
-  
-          {/*  <div>
+
+            {/*  <div>
               <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -173,9 +178,8 @@ const Navbar = () => {
               </label>
             </div> */}
           </nav>
-          
         </div>
-      }
+      )}
     </>
   );
 };

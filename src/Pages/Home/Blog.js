@@ -5,7 +5,6 @@ import AllBlog from "./AllBlog";
 import BlogCard from "./BlogCard";
 
 const Blog = () => {
-  
   /* const blogs = [
     {
         _id:1,
@@ -62,26 +61,20 @@ const Blog = () => {
 
     },
   ] */
-  
 
   const [blogs, setBlogs] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:5000/blog')
-      .then(res => res.json())
-      .then(data => setBlogs(data));
-    },[])
-    console.log(blogs);
+    fetch("https://stark-hollows-26694.herokuapp.com/blog")
+      .then((res) => res.json())
+      .then((data) => setBlogs(data));
+  }, []);
+  console.log(blogs);
   return (
-    <div
-      className="mt-10 flex flex-wrap justify-center items-center gap-5"
-    >
-      {
-        blogs?.slice(0, 9).map(blog => <BlogCard
-          key={blog._id}
-          blog={blog}
-        ></BlogCard>)
-      }
+    <div className="mt-10 flex flex-wrap justify-center items-center gap-5">
+      {blogs?.slice(0, 9).map((blog) => (
+        <BlogCard key={blog._id} blog={blog}></BlogCard>
+      ))}
     </div>
   );
 };

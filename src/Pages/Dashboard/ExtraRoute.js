@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const ExtraRoute = () => {
   const [imgUpload, setImgUpload] = useState(null);
@@ -28,30 +28,29 @@ const ExtraRoute = () => {
     // console.log(data.email, imgUpload);
     const adminEmail = data.email;
     const adminImage = imgUpload;
-    const role = 'admin';
+    const role = "admin";
     const adminData = { adminEmail, adminImage, role };
     // console.log(adminData);
 
-    fetch('http://localhost:5000/admin', {
+    fetch("https://stark-hollows-26694.herokuapp.com/admin", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(adminData),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         // console.log(data);
         if (data.acknowledged) {
-          toast.success('your admin added successfully');
+          toast.success("your admin added successfully");
           resetField("email");
           resetField("file");
           setImgUpload(null);
+        } else {
+          toast.error("oops! any problem occurred plz try again");
         }
-        else {
-          toast.error('oops! any problem occurred plz try again')
-        }
-    })
+      });
   };
 
   return (
@@ -64,22 +63,24 @@ const ExtraRoute = () => {
         />
       </div>
 
-      {!imgUpload && <label className="block">
-        <span className="sr-only">Choose profile photo</span>
-        <input
-          {...register("file")}
-          type="file"
-          accept="image/*"
-          onChange={handleImage}
-          className="block w-full text-sm text-slate-500
+      {!imgUpload && (
+        <label className="block">
+          <span className="sr-only">Choose profile photo</span>
+          <input
+            {...register("file")}
+            type="file"
+            accept="image/*"
+            onChange={handleImage}
+            className="block w-full text-sm text-slate-500
             file:mr-4 file:py-2 file:px-4
             file:rounded-full file:border-0
             file:text-sm file:font-semibold
             file:bg-violet-50 file:text-violet-700
             hover:file:bg-violet-100
             "
-        />
-      </label>}
+          />
+        </label>
+      )}
 
       <div>
         <input

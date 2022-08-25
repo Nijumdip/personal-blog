@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const AddCategories = () => {
   const [imageUpload, setImageUpload] = useState(null);
 
-  const handleImage = e => {
+  const handleImage = (e) => {
     const image = e.target.files[0];
     const formData = new FormData();
     formData.set("key", "e3b0f164bd5e7d56983529530b499c26");
     formData.append("image", image);
-    fetch('https://api.imgbb.com/1/upload', {
+    fetch("https://api.imgbb.com/1/upload", {
       method: "POST",
-      body: formData
+      body: formData,
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         // console.log(data.data);
         setImageUpload(data.data.display_url);
       })
-      .catch(err => console.log(err));
-  }
+      .catch((err) => console.log(err));
+  };
 
   const { register, handleSubmit, resetField } = useForm();
   const onSubmit = (data) => {
@@ -32,24 +32,23 @@ const AddCategories = () => {
     const categoryData = { categoryImage, categoryTitle };
     // console.log(categoryData);
 
-    fetch('http://localhost:5000/category', {
+    fetch("https://stark-hollows-26694.herokuapp.com/category", {
       method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
       body: JSON.stringify(categoryData),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         // console.log(data);
         if (data.acknowledged) {
-          toast.success('your category added successfully');
+          toast.success("your category added successfully");
           resetField("category");
           resetField("file");
           setImageUpload(null);
-        }
-        else {
-          toast.error('oops! any problem occurred plz try again')
+        } else {
+          toast.error("oops! any problem occurred plz try again");
         }
       });
   };
@@ -61,20 +60,23 @@ const AddCategories = () => {
           <img
             className="h-16 w-16 object-cover rounded-full"
             src={imageUpload}
-            alt="" />
+            alt=""
+          />
         </div>
 
-        {<label className="block">
-          <span className="sr-only">Choose profile photo</span>
-          <input
-            {...register("file")}
-            onChange={handleImage}
-            type="file"
-            accept="image/*"
-            className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
-            required
-          />
-        </label>}
+        {
+          <label className="block">
+            <span className="sr-only">Choose profile photo</span>
+            <input
+              {...register("file")}
+              onChange={handleImage}
+              type="file"
+              accept="image/*"
+              className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+              required
+            />
+          </label>
+        }
 
         <div>
           <input
@@ -92,7 +94,6 @@ const AddCategories = () => {
           SUBMIT
         </button>
       </form>
-      
     </div>
   );
 };

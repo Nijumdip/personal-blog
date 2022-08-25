@@ -3,7 +3,6 @@ import { useState } from "react";
 import Category from "./Category";
 
 const Categories = () => {
-
   /* const categories = [
     {
       _id: 1,
@@ -49,21 +48,18 @@ const Categories = () => {
 
   const [categories, setCategories] = useState();
   useEffect(() => {
-    fetch('http://localhost:5000/category')
-      .then(res => res.json())
-      .then(data => setCategories(data));
- },[])
+    fetch("https://stark-hollows-26694.herokuapp.com/category")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
 
   return (
     <div className=" bg-gray-100 -mt-28">
-   <div className="flex flex-wrap justify-center items-center gap-3">
-        {categories?.map(category =><Category
-                key={category._id}    
-                category={category}    
-            ></Category>)
-        
-        }
-    </div>
+      <div className="flex flex-wrap justify-center items-center gap-3">
+        {categories?.map((category) => (
+          <Category key={category._id} category={category}></Category>
+        ))}
+      </div>
     </div>
   );
 };
