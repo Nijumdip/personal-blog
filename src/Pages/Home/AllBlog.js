@@ -13,7 +13,7 @@ const AllBlog = () => {
       .then((data) => {
         // console.log(data);
         setBlogs(data);
-      });
+    });
   }, []);
 
   return (
